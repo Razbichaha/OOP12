@@ -8,7 +8,7 @@ namespace OOP12
         static void Main(string[] args)
         {
             ProgramCore programCore = new ProgramCore();
-            programCore.ProgramLogic();
+            programCore.GoToZoo();
             Console.ReadLine();
         }
     }
@@ -18,7 +18,7 @@ namespace OOP12
         private Zoo _zoo = new Zoo();
         private Menu _menu = new Menu();
 
-        internal void ProgramLogic()
+        internal void GoToZoo()
         {
             _menu.ShowHeader();
             _zoo.PresentZoo();
@@ -29,7 +29,7 @@ namespace OOP12
         {
             string aviaryString = _menu.ChoosingAviary();
 
-            if (_zoo.ThereIsAviary(aviaryString))
+            if (_zoo.IsThereAviary(aviaryString))
             {
                 _menu.ShowAviary(aviaryString);
                 _zoo.ShowAviares(aviaryString);
@@ -83,7 +83,7 @@ namespace OOP12
     class Zoo
     {
         private Menu _menu = new Menu();
-        private List<Aviary> _ListAviares = new List<Aviary>();
+        private List<Aviary> _Aviares = new List<Aviary>();
 
         private int _maximumAviary = 10;
         private int _minimumAviary = 4;
@@ -96,7 +96,7 @@ namespace OOP12
 
         internal void ShowAviares(string aviary)
         {
-            foreach (Aviary item in _ListAviares)
+            foreach (Aviary item in _Aviares)
             {
                 if (item.Name == aviary)
                 {
@@ -108,17 +108,17 @@ namespace OOP12
 
         internal void PresentZoo()
         {
-            foreach (Aviary aviary in _ListAviares)
+            foreach (Aviary aviary in _Aviares)
             {
                 _menu.ShowAviaries(aviary.Name);
             }
         }
 
-        internal bool ThereIsAviary(string aviary)
+        internal bool IsThereAviary(string aviary)
         {
             bool isMatch = false;
 
-            foreach (Aviary item in _ListAviares)
+            foreach (Aviary item in _Aviares)
             {
                 if (item.Name == aviary)
                 {
@@ -139,7 +139,7 @@ namespace OOP12
 
                 if (IsMatch(aviary) == false)
                 {
-                    _ListAviares.Add(aviary);
+                    _Aviares.Add(aviary);
                 }
             }
         }
@@ -148,7 +148,7 @@ namespace OOP12
         {
             bool match = false;
 
-            foreach (Aviary tempAviary in _ListAviares)
+            foreach (Aviary tempAviary in _Aviares)
             {
                 if (tempAviary.Name == aviary.Name)
                 {
@@ -164,7 +164,7 @@ namespace OOP12
         private string[] _listAviary = { "Медведями", "Тиграми", "Зайцами", "Собаками", "Кошками", "Пантерами", "Страусами", "Крокодилами", "Чебурашками" };
         private int _maximumAnimals = 10;
         private int _minimumAnimals = 3;
-        private List<Animal> _listAnimals = new List<Animal>();
+        private List<Animal> _Animals = new List<Animal>();
         private List<int> _tempBaseId = new List<int>(0);
         private Random _random = new Random();
         private Menu _menu = new Menu();
@@ -184,7 +184,7 @@ namespace OOP12
 
         internal void ShowAnimals(string name)
         {
-            foreach (Animal animal in _listAnimals)
+            foreach (Animal animal in _Animals)
             {
                 _menu.ShowAnimal(animal);
             }
@@ -197,7 +197,7 @@ namespace OOP12
             for (int i = 0; i < randomQuantityAnimals; i++)
             {
                 Animal animal = new Animal(GetIndex(Name));
-                _listAnimals.Add(animal);
+                _Animals.Add(animal);
             }
         }
 
