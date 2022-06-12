@@ -27,7 +27,7 @@ namespace OOP12
 
         private void GoAviary()
         {
-            string aviaryString = _menu.ChoosingAviary();
+            string aviaryString = _menu.ChoosingAnAviary();
 
             if (_zoo.IsThereAviary(aviaryString))
             {
@@ -66,7 +66,7 @@ namespace OOP12
             Console.WriteLine($"Вольер с {name}");
         }
 
-        internal string ChoosingAviary()
+        internal string ChoosingAnAviary()
         {
             Console.WriteLine("Выберите вольер для просмотра.");
             string choosing = Console.ReadLine();
