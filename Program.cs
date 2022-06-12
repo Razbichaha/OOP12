@@ -66,7 +66,7 @@ namespace OOP12
             Console.WriteLine($"Вольер с {name}");
         }
 
-        internal string ChoosingAnAviary()
+        internal string ToAviary()
         {
             Console.WriteLine("Выберите вольер для просмотра.");
             string choosing = Console.ReadLine();
